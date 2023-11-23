@@ -14,6 +14,16 @@ public class Human extends Actor
      */
     public void act()
     {
-      setLocation(getX(), getY()+1);
+      
+        int x = getX();
+        int y = getY() + 3;
+        setLocation (x,y);
+        
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
 }

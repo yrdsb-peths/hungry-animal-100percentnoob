@@ -53,19 +53,35 @@ public class Elephant extends Actor
              imageIndex = (imageIndex + 1) % idleLeft.length;
         }
     }
-    
+    int speed = 2;
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-4); 
+            move(0 -speed); 
             facing = "left";
+            if (speed < 0)
+            {
+                speed = 0;
+            }
         }
         else if (Greenfoot.isKeyDown("right"))
         {
-            move(4);
+            move(speed);
             facing = "right";
-        }  
+            if (speed > 5)
+            {
+                speed = 5;
+            }
+        }
+        else if (Greenfoot.isKeyDown("up"))
+        {
+            speed++;
+        }
+        else if (Greenfoot.isKeyDown("down"))
+        {
+            speed--;
+        }
         eat();
         animateElephant();
         eatfat();
@@ -88,7 +104,7 @@ public class Elephant extends Actor
         {
             removeTouching(FatHuman.class);
             MyWorld world = (MyWorld) getWorld();
-            world.createHuman();
+            
             world.increaseScore5();
             elephantSound.play();
         }

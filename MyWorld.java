@@ -28,9 +28,11 @@ public class MyWorld extends World
         
            
     }
+   
     public void act()
     {
         createFatHuman();
+       
         
     }
     public  void gameOver(){
@@ -40,6 +42,10 @@ public class MyWorld extends World
     public void increaseScore(){
         score++;
         scoreLabel.setValue(score);
+        if(score%10 == 0)
+        {
+            
+        }
         
     }
     public void increaseScore5(){

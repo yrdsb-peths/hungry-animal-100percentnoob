@@ -56,23 +56,27 @@ public class Elephant extends Actor
     int speed = 2;
     public void act()
     {
-        if(Greenfoot.isKeyDown("left"))
+        if (speed < 1)
         {
+            speed = 1;
+        }
+        if (speed > 5 )
+        {
+            speed = 5;
+        }
+        if(Greenfoot.isKeyDown("left"))
+        {   
+           
             move(0 -speed); 
             facing = "left";
-            if (speed < 0)
-            {
-                speed = 0;
-            }
+            
         }
         else if (Greenfoot.isKeyDown("right"))
         {
+            
             move(speed);
             facing = "right";
-            if (speed > 5)
-            {
-                speed = 5;
-            }
+            
         }
         else if (Greenfoot.isKeyDown("up"))
         {

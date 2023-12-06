@@ -56,14 +56,8 @@ public class Elephant extends Actor
     int speed = 2;
     public void act()
     {
-        if (speed < 1)
-        {
-            speed = 1;
-        }
-        if (speed > 5 )
-        {
-            speed = 5;
-        }
+        
+       
         if(Greenfoot.isKeyDown("left"))
         {   
            
@@ -80,11 +74,19 @@ public class Elephant extends Actor
         }
         else if (Greenfoot.isKeyDown("up"))
         {
+            if (speed > 10 )
+            {
             speed++;
+            }
+            speed = 10;
         }
         else if (Greenfoot.isKeyDown("down"))
         {
-            speed--;
+            if (speed < 2)
+            {
+                speed--;
+            }
+            speed = 2;
         }
         eat();
         animateElephant();

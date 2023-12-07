@@ -76,7 +76,7 @@ public class Elephant extends Actor
         {
             
             speed++;
-             if (speed <=0)
+             if (speed >= 10)
             {
                 speed = 10;
             }
@@ -85,15 +85,16 @@ public class Elephant extends Actor
         else if (Greenfoot.isKeyDown("down"))
         {
             speed--;
-            if (speed >=0)
+            if (speed <=0)
             {
                 speed = 2;
             }
         }
+        
         eat();
         animateElephant();
         eatfat();
-        border();
+       
     }
     public void eat()
     {
@@ -118,17 +119,5 @@ public class Elephant extends Actor
             elephantSound.play();
         }
     }
-    public void border()
-    {
-        int leftBorder = 0;
-        int rightBorder = 600;
-        if(getX() + 40 >= rightBorder)
-        {
-            setLocation(rightBorder -40,300);
-        }
-        else if (getX()-40 <=0 )
-        {
-            setLocation(40,300);
-        }
-    }
+   
 }

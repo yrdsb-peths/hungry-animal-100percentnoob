@@ -94,6 +94,7 @@ public class Elephant extends Actor
         eat();
         animateElephant();
         eatfat();
+        border();
        
     }
     public void eat()
@@ -119,5 +120,18 @@ public class Elephant extends Actor
             elephantSound.play();
         }
     }
-   
+
+    public void border()
+    {
+        int rightBorder = 600;
+        
+        if (getX() + 40 >= rightBorder)
+        {
+            setLocation(rightBorder - 40, 300);
+        }
+        else if (getX() - 40 <= 0)
+        {
+            setLocation(40, 300);
+        }
+    }
 }
